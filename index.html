@@ -28,7 +28,7 @@ function doAllMath(){
 		presentValue += mc / (Math.pow((1 + r), (i * (lifetime/mf)))); //Add maintanice costs to pv of product
 	}
 	presentValue += energy * ((1-Math.pow((1+r),-lifetime))/r); //Energy costs as an annuity
-	presentValue += dc / (Math.pow((1+r),lifetime);
+	presentValue += dc / (Math.pow((1+r),lifetime));
 	document.getElementById("output").innerHTML = presentValue;
 	}
 	
