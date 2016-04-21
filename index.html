@@ -24,7 +24,7 @@ function doAllMath(){
 	var presentValue = price;
 	var r = document.getElementById("rate").value;
 	var temp;
-	for (i = 0; i < mf; i++){
+	for (i = 1; i < mf+1; i++){
 		presentValue += mc / (Math.pow((1 + r), (i * (lifetime/mf)))); //Add maintanice costs to pv of product
 	}
 	presentValue += energy * ((1-Math.pow((1+r),-lifetime))/r); //Energy costs as an annuity
