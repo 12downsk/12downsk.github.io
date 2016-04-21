@@ -21,14 +21,15 @@ function doAllMath(){
 	var mf = document.getElementById("maint_freq").value;
 	var mc = document.getElementById("maint_cost").value;
 	var dc = document.getElementById("disp_cost").value;
-	var presentValue = price;
 	var r = document.getElementById("rate").value;
-	var temp;
-	for (i = 1; i < (mf+1); i++){
-		presentValue += mc / (Math.pow((1 + r), (i * (lifetime/mf)))); //Add maintanice costs to pv of product
+    
+    //Something is very wrong in that for loop
+	for (i = 0; i < mf; i++){ 
+		var pvMaint = mc / (Math.pow((1 + r), ((i+1) * (lifetime/mf+1)))); //Add maintanice costs to pv of product
 	}
-	presentValue += energy * ((1-Math.pow((1+r),-lifetime))/r); //Energy costs as an annuity
-	presentValue += dc / (Math.pow((1+r),lifetime));
+	var pvEnergy = energy * ((1-Math.pow((1+r),-lifetime))/r); //Energy costs as an annuity
+	var pvDisp = dc / (Math.pow((1+r),lifetime)); //Disposal Costs
+    var presentValue = pvMaint + pvEnergy + pvDisp;
 	document.getElementById("output").innerHTML = presentValue;
 	}
 	
