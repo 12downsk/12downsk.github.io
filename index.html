@@ -32,7 +32,9 @@ function doAllMath(){
     var pvEnergy = energy * ((1-Math.pow((1+r),-lifetime))/r)
 	var pvDisp = dc / (Math.pow((1+r),lifetime)); //Disposal Costs
 	var presentValue = pvMaint + pvEnergy + pvDisp + price;
+    euac = presentValue / ((1-(1/(Math.pow((1+r),lifetime))))/r);
 	document.getElementById("output").innerHTML = presentValue.toFixed(2);
+    document.getElementById("euac").innerHTML = euac.toFixed(2);
 	}
 	
 function clearAll(){
