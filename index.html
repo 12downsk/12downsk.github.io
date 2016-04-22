@@ -27,7 +27,8 @@ function doAllMath(){
 	for (i = 0; i < mf; i++){ 
 		var pvMaint = mc * (1/ (Math.pow((1 + r), ((i+1) * (lifetime/mf+1))))); //Add maintanice costs to pv of product
 	}
-	var pvEnergy = energy * ((Math.pow((1+r),lifetime)-1)/(i*Math.pow((1+r),lifetime)));
+	//var pvEnergy = energy * ((Math.pow((1+r),lifetime)-1)/(i*Math.pow((1+r),lifetime)));
+    var pvEnergy = energy * ((1-Math.pow((1+r),-lifetime))/r)
 	var pvDisp = dc / (Math.pow((1+r),lifetime)); //Disposal Costs
 	var presentValue = pvMaint + pvEnergy + pvDisp + price;
 	document.getElementById("output").innerHTML = presentValue.toFixed(2);
