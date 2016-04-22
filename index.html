@@ -22,7 +22,6 @@ function doAllMath(){
 	var mc = parseFloat(document.getElementById("maint_cost").value);
 	var dc = parseFloat(document.getElementById("disp_cost").value);
 	var r = parseFloat(document.getElementById("rate").value);
-    var euac;
     var temp = 1+r;
     
 	for (i = 0; i < mf; i++){ 
@@ -32,7 +31,7 @@ function doAllMath(){
     var pvEnergy = energy * ((1-Math.pow((1+r),-lifetime))/r)
 	var pvDisp = dc / (Math.pow((1+r),lifetime)); //Disposal Costs
 	var presentValue = pvMaint + pvEnergy + pvDisp + price;
-    euac = presentValue / ((1-(1/(Math.pow((1+r),lifetime))))/r);
+    var euac = presentValue / ((1-(1/(Math.pow((1+r),lifetime))))/r);
 	document.getElementById("output").innerHTML = presentValue.toFixed(2);
     document.getElementById("euac").innerHTML = euac.toFixed(2);
 	}
@@ -73,7 +72,7 @@ function clearAll(){
         <h3>Present Value</h3>
         <p id="output">...</p>
         <h3>EUAC</h3>
-        <p id="EUAC">...</p>
+        <p id="euac">...</p>
     </div>
     <div class="col-md-2"></div>
 </div>
