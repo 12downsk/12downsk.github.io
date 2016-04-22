@@ -34,6 +34,9 @@ function doAllMath(){
     var euac = presentValue / ((1-(1/(Math.pow((1+r),lifetime))))/r);
 	document.getElementById("output").innerHTML = presentValue.toFixed(2);
     document.getElementById("euac").innerHTML = euac.toFixed(2);
+    document.getElementById("maint_c").innerHTML = pvMaint.toFixed(2);
+    document.getElementById("energy_c").innerHTML = pvEnergy.toFixed(2);
+    document.getElementById("disp_c").innerHTML = pvDisp.toFixed(2);
 	}
 	
 function clearAll(){
@@ -49,7 +52,7 @@ function clearAll(){
     
 }
 </script>
-<body style="background-color:#EEDFA6">
+<body >
 <div class="row" style="padding:50px 0px 0px 0px">
     <div class="col-md-2"></div>
     <div class="col-md-8">
@@ -73,6 +76,22 @@ function clearAll(){
         <p id="output">...</p>
         <h3>EUAC</h3>
         <p id="euac">...</p>
+        <table class="table">
+            <th>Cost Type</th>
+            <th>Cost</th>
+            <tr>
+                <td>Maintence Costs</td>
+                <td id="maint_c"></td>
+            </tr>
+            <tr>
+                <td>Energy Costs</td>
+                <td id="energy_c"></td>
+            </tr>
+            <tr>
+                <td>Disposal Costs</td>
+                <td id="disp_c"></td>
+            </tr>
+        </table>
     </div>
     <div class="col-md-2"></div>
 </div>
