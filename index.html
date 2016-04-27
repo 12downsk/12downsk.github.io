@@ -22,10 +22,10 @@ function doAllMath(){
 	var mc = parseFloat(document.getElementById("maint_cost").value);
 	var dc = parseFloat(document.getElementById("disp_cost").value);
 	var r = parseFloat(document.getElementById("rate").value);
-    var temp = 1+r;
-    var pvMaint;
+    var temp = 0;
+    var pvMaint = 0;
 	for (i = 0; i < mf; i++){ 
-		pvMaint = mc * (1/ (Math.pow((1 + r), ((i+1) * (lifetime/mf+1))))); //Add maintanice costs to pv of product
+		pvMaint += mc * (1/ (Math.pow((1 + r), ((i+1) * (lifetime/mf+1))))); //Add maintanice costs to pv of product
 	}
 	//var pvEnergy = energy * ((Math.pow((1+r),lifetime)-1)/(i*Math.pow((1+r),lifetime)));
     var pvEnergy = energy * ((1-Math.pow((1+r),-lifetime))/r)
